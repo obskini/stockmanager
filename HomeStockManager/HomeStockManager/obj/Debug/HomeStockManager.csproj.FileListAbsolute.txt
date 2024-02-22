@@ -13,3 +13,17 @@ C:\Users\MSI\source\repos\HomeStockManager\HomeStockManager\obj\Debug\HomeStockM
 C:\Users\MSI\source\repos\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.csproj.CoreCompileInputs.cache
 C:\Users\MSI\source\repos\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.exe
 C:\Users\MSI\source\repos\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.pdb
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\bin\Debug\HomeStockManager.exe.config
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\bin\Debug\HomeStockManager.exe
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\bin\Debug\HomeStockManager.pdb
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.csproj.AssemblyReference.cache
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\MainWindow.g.cs
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\App.g.cs
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager_MarkupCompile.cache
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\MainWindow.baml
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.g.resources
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.Properties.Resources.resources
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.csproj.GenerateResource.cache
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.csproj.CoreCompileInputs.cache
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.exe
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.pdb
