@@ -1,0 +1,13 @@
+﻿<Window x:Class="HomeStockManager.Hub"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeStockManager"
+        mc:Ignorable="d"
+        Title="Hub" Height="668" Width="1243">
+    <Grid Margin="0,0,10,6">
+        <Label x:Name="lblSayHi" Content="Hello, " HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial"/>
+
+    </Grid>
+</Window>

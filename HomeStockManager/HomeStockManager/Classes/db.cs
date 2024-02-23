@@ -13,12 +13,14 @@ namespace HomeStockManager.Classes
 
         public DB()
         {
-            server = "";
+            server = "35.197.205.190";
             database = "stockbeheer";
-            username = "";
-            password = "";
+            username = "stockbeheerder";
+            password = "hahatesting123";
 
             connection = new MySqlConnection($"server={server};port=3306;uid={username};pwd={password};database={database}");
+
+            //jullie kunnen de database bekijken op 35.197.205.190/phpmyadmin
         }
 
         public bool Login(string username, string password)
@@ -70,6 +72,56 @@ namespace HomeStockManager.Classes
             {
                 Console.WriteLine("Error: " + ex.Message);
                 return false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
+        public User GetUserInfo(string username)
+        {
+            string query = "SELECT username, email, firstName, lastName, role FROM users WHERE username = @username";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string userEmail = reader["email"].ToString();
+                        string firstName = reader["firstName"].ToString();
+                        string lastName = reader["lastName"].ToString();
+                        string role = reader["role"].ToString();
+
+                        User user = new User
+                        {
+                            Username = username,
+                            Email = userEmail,
+                            FirstName = firstName,
+                            LastName = lastName,
+                            Role = role
+                        };
+
+                        return user;
+                    }
+                    else
+                    {
+                        Console.WriteLine("User not found in the database.");
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
             }
             finally
             {

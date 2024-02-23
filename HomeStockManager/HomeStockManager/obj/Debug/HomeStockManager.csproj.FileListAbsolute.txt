@@ -61,3 +61,6 @@ C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\bin
 C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.csproj.SuggestedBindingRedirects.cache
 C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.exe.config
 C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager.csproj.CopyComplete
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\Hub.g.cs
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager_MarkupCompile.lref
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\Hub.baml
