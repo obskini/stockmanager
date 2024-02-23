@@ -15,5 +15,15 @@ namespace HomeStockManager
             me = loggedInUser;
             lblSayHi.Content = "Hello, " + me.FirstName;
         }
+
+        private void btnStorage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

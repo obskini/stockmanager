@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:HomeStockManager"
         mc:Ignorable="d"
         Title="Hub" Height="668" Width="1243">
-    <Grid Margin="0,0,10,6">
-        <Label x:Name="lblSayHi" Content="Hello, " HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial"/>
+    <Grid Margin="0,0,0,-6">
+        <Label x:Name="lblSayHi" Content="Hello, " HorizontalAlignment="Left" Margin="87,27,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial"/>
+        <Button x:Name="btnSettings" Content="Settings" Margin="59,245,1035,344" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnSettings_Click" />
+        <Button x:Name="btnStorage" Content="Storage" Margin="59,107,1035,481" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnStorage_Click" />
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="743" Margin="266,0,0,0" VerticalAlignment="Center" Width="40"/>
 
     </Grid>
 </Window>
