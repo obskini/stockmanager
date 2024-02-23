@@ -1,38 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using HomeStockManager.Classes;
 
 namespace HomeStockManager
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private DB db;
+
         public MainWindow()
         {
             InitializeComponent();
+            db = new DB();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
 
+            if (db.Login(username, password))
+            {
+                MessageBox.Show("Login successful!");
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password!");
+            }
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
+            string firstName = RegisterFirstNameTextBox.Text;
+            string lastName = RegisterLastNameTextBox.Text;
+            string username = RegisterUsernameTextBox.Text;
+            string email = RegisterEmailTextBox.Text;
+            string password = RegisterPasswordBox.Password;
 
+            if (db.Register(firstName, lastName, username, email, password))
+            {
+                MessageBox.Show("Registration successful!");
+                RegisterFirstNameTextBox.Clear();
+                RegisterLastNameTextBox.Clear();
+                RegisterUsernameTextBox.Clear();
+                RegisterEmailTextBox.Clear();
+                RegisterPasswordBox.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Registration failed!");
+            }
         }
     }
 }
