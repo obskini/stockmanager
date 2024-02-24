@@ -1,4 +1,5 @@
 ﻿using HomeStockManager.Classes;
+using System;
 using System.Windows;
 
 namespace HomeStockManager
@@ -14,16 +15,24 @@ namespace HomeStockManager
             InitializeComponent();
             me = loggedInUser;
             lblSayHi.Content = "Hello, " + me.FirstName;
+            HideStorage();
+        }
+
+        private void HideStorage()
+        {
+            btnAddStoragePlace.Visibility = Visibility.Collapsed;
+            lblAddStorage.Visibility = Visibility.Collapsed;
         }
 
         private void btnStorage_Click(object sender, RoutedEventArgs e)
         {
-
+            btnAddStoragePlace.Visibility = Visibility.Visible;
+            lblAddStorage.Visibility = Visibility.Visible;
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            HideStorage();
         }
     }
 }

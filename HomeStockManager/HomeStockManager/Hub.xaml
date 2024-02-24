@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HomeStockManager"
         mc:Ignorable="d"
-        Title="Hub" Height="668" Width="1243">
+        Title="Hub" Height="668" Width="1243" Icon="/storage.ico">
     <Grid Margin="0,0,0,-6">
         <Label x:Name="lblSayHi" Content="Hello, " HorizontalAlignment="Left" Margin="87,27,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial"/>
-        <Button x:Name="btnSettings" Content="Settings" Margin="59,245,1035,344" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnSettings_Click" />
-        <Button x:Name="btnStorage" Content="Storage" Margin="59,107,1035,481" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnStorage_Click" />
+        <Button x:Name="btnSettings" Content="Settings" Margin="59,245,1035,344" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnSettings_Click" Cursor="Hand" />
+        <Button x:Name="btnStorage" Content="Storage" Margin="59,107,1035,481" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnStorage_Click" Cursor="Hand" />
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="743" Margin="266,0,0,0" VerticalAlignment="Center" Width="40"/>
+        <Button x:Name="btnAddStoragePlace" Content="+" Margin="828,56,362,546" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" />
+        <Label x:Name="lblAddStorage" Content="Add Storage" HorizontalAlignment="Left" Margin="731,56,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5834E0" FontWeight="Bold"/>
 
     </Grid>
 </Window>

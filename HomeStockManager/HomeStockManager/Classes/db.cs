@@ -6,10 +6,7 @@ namespace HomeStockManager.Classes
     public class DB
     {
         private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string username;
-        private string password;
+        private string server, database, username, password;
 
         public DB()
         {
@@ -21,6 +18,7 @@ namespace HomeStockManager.Classes
             connection = new MySqlConnection($"server={server};port=3306;uid={username};pwd={password};database={database}");
 
             //jullie kunnen de database bekijken op 35.197.205.190/phpmyadmin
+            //database zelf noemt stockbeheer
         }
 
         public bool Login(string username, string password)

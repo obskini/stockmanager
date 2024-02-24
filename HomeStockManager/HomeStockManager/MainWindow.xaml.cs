@@ -18,24 +18,16 @@ namespace HomeStockManager
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            // Controleer inloggegevens in de database
             if (db.Login(username, password))
             {
-                // Haal gebruikersgegevens op uit de database
                 User loggedInUser = db.GetUserInfo(username);
 
-                // Controleer of de gebruikersgegevens met succes zijn opgehaald
                 if (loggedInUser != null)
                 {
                     MessageBox.Show("Login successful!");
 
-                    // Maak een nieuw instantie van Hub.xaml aan en geef de gebruikersgegevens door
                     Hub hubWindow = new Hub(loggedInUser);
-
-                    // Toon het Hub venster
                     hubWindow.Show();
-
-                    // Sluit het huidige venster (indien nodig)
                     this.Close();
                 }
                 else
