@@ -8,11 +8,42 @@
         Title="Hub" Height="668" Width="1243" Icon="/storage.ico">
     <Grid Margin="0,0,0,-6">
         <Label x:Name="lblSayHi" Content="Hello, " HorizontalAlignment="Left" Margin="87,27,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial"/>
-        <Button x:Name="btnSettings" Content="Settings" Margin="59,245,1035,344" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnSettings_Click" Cursor="Hand" />
+        <Button x:Name="btnSettings" Content="Settings" Margin="59,397,1035,192" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnSettings_Click" Cursor="Hand" />
         <Button x:Name="btnStorage" Content="Storage" Margin="59,107,1035,481" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnStorage_Click" Cursor="Hand" />
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="743" Margin="266,0,0,0" VerticalAlignment="Center" Width="40"/>
-        <Button x:Name="btnAddStoragePlace" Content="+" Margin="828,56,362,546" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" />
+        <Button x:Name="btnAddStoragePlace" Content="+" Margin="828,56,362,546" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnAddStoragePlace_Click" />
         <Label x:Name="lblAddStorage" Content="Add Storage" HorizontalAlignment="Left" Margin="731,56,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5834E0" FontWeight="Bold"/>
+        <Label x:Name="lblStoragePlaceName" Content="Name of the storage place:" HorizontalAlignment="Left" Margin="945,190,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="txtStoragePlaceName" HorizontalAlignment="Left" Margin="963,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Height="35" FontSize="20" FontFamily="Arial"/>
+        <Button x:Name="btnSaveStoragePlace" Content="Save" Margin="1014,258,136,344" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnSaveStoragePlace_Click" />
+        <Button x:Name="btnFirstStoragePlace" Content="" Margin="366,175,666,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnFirstStoragePlace_Click" >
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF7713F5" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+        <Image x:Name="imgArrowDown" HorizontalAlignment="Left" Height="30" Margin="512,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="FirstArrowClick"/>
+        <Button x:Name="btnSecondStoragePlace" Content="" Margin="672,175,360,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" >
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF7713F5" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+        <Image x:Name="imgArrowDown_Copy" HorizontalAlignment="Left" Height="30" Margin="818,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand"/>
+        <Image x:Name="btnCloseSaveOption" Margin="1166,181,31,436" Source="/close.png" MouseLeftButtonDown="CloseStorageSaveOption"/>
+        <Label x:Name="lblNoStoragePlaces" Content="No storage places yet!" HorizontalAlignment="Left" Margin="386,255,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="36">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF5717EA" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Button x:Name="btnNotifications" Content="Notifications" Margin="59,250,1035,339" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Cursor="Hand" Click="btnNotifications_Click" />
 
     </Grid>
 </Window>

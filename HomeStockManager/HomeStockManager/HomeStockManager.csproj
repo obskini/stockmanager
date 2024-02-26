@@ -162,5 +162,11 @@
   <ItemGroup>
     <Resource Include="storage.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Arrow-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

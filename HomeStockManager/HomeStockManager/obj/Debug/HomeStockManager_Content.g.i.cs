@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("storage.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("close.png")]
 
 

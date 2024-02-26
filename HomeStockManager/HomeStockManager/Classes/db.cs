@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Windows;
 
 namespace HomeStockManager.Classes
 {
@@ -75,6 +76,103 @@ namespace HomeStockManager.Classes
             {
                 if (connection.State == System.Data.ConnectionState.Open)
                     connection.Close();
+            }
+        }
+
+        public int CheckAmountStoragePlaces(string username)
+        {
+            string query = "SELECT COUNT(*) FROM storagePlaces WHERE username = @username";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return -1;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
+        public string GetStoragePlaceName(string username)
+        {
+            string storagePlaceName = null;
+            string query = "SELECT storageplaceName FROM storagePlaces WHERE username = @username";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    storagePlaceName = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open) connection.Close();
+            }
+
+            return storagePlaceName;
+        }
+
+        public bool SaveStoragePlace(string username, string storagePlaceName)
+        {
+            string checkQuery = "SELECT COUNT(*) FROM storagePlaces WHERE username = @username AND storageplaceName = @storagePlaceName";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection);
+                checkCmd.Parameters.AddWithValue("@username", username);
+                checkCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+
+                int existingCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                if (existingCount > 0)
+                {
+                    MessageBox.Show("Storage place already exists.");
+                    return false;
+                }
+
+                string insertQuery = "INSERT INTO storagePlaces (username, storageplaceName) VALUES (@username, @storagePlaceName)";
+
+                MySqlCommand insertCmd = new MySqlCommand(insertQuery, connection);
+                insertCmd.Parameters.AddWithValue("@username", username);
+                insertCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+
+                int rowsAffected = insertCmd.ExecuteNonQuery();
+                MessageBox.Show("Storage place saved.");
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open) connection.Close();
             }
         }
 
