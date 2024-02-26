@@ -1,5 +1,6 @@
 ﻿using HomeStockManager.Classes;
 using System;
+using System.Data;
 using System.Windows;
 using System.Windows.Media;
 
@@ -41,6 +42,7 @@ namespace HomeStockManager
             lblAddFirst.Visibility = Visibility.Collapsed;
             lblEditFirst.Visibility = Visibility.Collapsed;
             lblDeleteFirst.Visibility = Visibility.Collapsed;
+            dgFirst.Visibility = Visibility.Collapsed;
         }
 
         private void btnStorage_Click(object sender, RoutedEventArgs e)
@@ -118,7 +120,6 @@ namespace HomeStockManager
         private void btnFirstStoragePlace_Click(object sender, RoutedEventArgs e)
         {
             FlipFirstArrow();
-
         }
 
         private void FirstArrowClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -141,6 +142,8 @@ namespace HomeStockManager
                 lblDeleteFirst.Visibility = Visibility.Collapsed;
                 lblAddFirst.Visibility = Visibility.Collapsed;
 
+                dgFirst.Visibility = Visibility.Collapsed;
+
                 countertje = 1;
             }
             else
@@ -156,6 +159,10 @@ namespace HomeStockManager
                 lblEditFirst.Visibility = Visibility.Visible;
                 lblDeleteFirst.Visibility = Visibility.Visible;
                 lblAddFirst.Visibility = Visibility.Visible;
+
+                DataTable dt = db.GetStorageData(me.Username, btnFirstStoragePlace.Content.ToString());
+                dgFirst.ItemsSource = dt.DefaultView;
+                dgFirst.Visibility = Visibility.Visible;
 
                 countertje = 2;
             }

@@ -83,7 +83,7 @@
                         <TextBlock Text="Welcome Back!" HorizontalAlignment="Center" />
                         <TextBlock Text="Please login to continue." HorizontalAlignment="Center" Margin="0,10,0,20" />
                         <TextBlock Text="Username:" />
-                        <TextBox x:Name="UsernameTextBox" Text="obe" />
+                        <TextBox x:Name="UsernameTextBox" />
                         <TextBlock Text="Password:" Margin="0,10,0,0" />
                         <PasswordBox x:Name="PasswordBox" />
                         <Button Content="Login" Click="LoginButton_Click" />

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Windows;
 
 namespace HomeStockManager.Classes
@@ -242,6 +243,38 @@ namespace HomeStockManager.Classes
                 if (connection.State == System.Data.ConnectionState.Open)
                     connection.Close();
             }
+        }
+
+        public DataTable GetStorageData(string username, string storagePlaceName)
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT storageContent, ContentsExpiry, ContentType FROM storage WHERE user = @username AND storagePlace = @storagePlaceName";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+
+            return dt;
         }
 
         public User GetUserInfo(string username)

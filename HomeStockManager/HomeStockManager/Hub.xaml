@@ -86,6 +86,7 @@
         <Label x:Name="lblAddFirst" Content="Add" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
         <Label x:Name="lblEditFirst" Content="Edit" HorizontalAlignment="Left" Margin="457,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
         <Label x:Name="lblDeleteFirst" Content="Delete" HorizontalAlignment="Left" Margin="497,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
+        <DataGrid x:Name="dgFirst" Margin="366,246,666,41"/>
 
     </Grid>
 </Window>
