@@ -107,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Hub.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +119,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddItem.xaml.cs">
+      <DependentUpon>AddItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -167,6 +174,48 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vegetables.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="meat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="drinks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="other.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cheese.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fruit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="topping.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="milk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="egg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sauces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="task-list-add.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

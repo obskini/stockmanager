@@ -44,6 +44,48 @@
             </Label.Foreground>
         </Label>
         <Button x:Name="btnNotifications" Content="Notifications" Margin="59,250,1035,339" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Cursor="Hand" Click="btnNotifications_Click" />
+        <Button x:Name="btnEditFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="454,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.556"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/edit.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnDeleteFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnDeleteFirstStoragePlace_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.556"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/delete.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnAddContentFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="409,216,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnAddContentFirstStoragePlace_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/add.png"/>
+            </Button.Background>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.556"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label x:Name="lblAddFirst" Content="Add" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
+        <Label x:Name="lblEditFirst" Content="Edit" HorizontalAlignment="Left" Margin="457,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
+        <Label x:Name="lblDeleteFirst" Content="Delete" HorizontalAlignment="Left" Margin="497,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
 
     </Grid>
 </Window>

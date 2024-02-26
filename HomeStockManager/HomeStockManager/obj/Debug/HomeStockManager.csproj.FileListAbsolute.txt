@@ -64,3 +64,5 @@ C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj
 C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\Hub.g.cs
 C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\HomeStockManager_MarkupCompile.lref
 C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\Hub.baml
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\AddItem.g.cs
+C:\Users\MSI\Documents\GitHub\stockmanager\HomeStockManager\HomeStockManager\obj\Debug\AddItem.baml

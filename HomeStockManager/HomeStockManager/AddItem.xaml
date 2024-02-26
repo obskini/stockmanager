@@ -1,0 +1,78 @@
+﻿<Window x:Class="HomeStockManager.AddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeStockManager"
+        mc:Ignorable="d"
+        Title="Add Item to Storage" Height="464" Width="586" Icon="/task-list-add.ico">
+    <Grid Margin="0,0,0,5">
+        <Button x:Name="btnAddItem" Content="Add" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Cursor="Hand" Margin="451,386,21,11" Click="btnAddItem_Click" />
+        <Label x:Name="lblNameOfItem" Content="Name of the item you want to add:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="14" Margin="0,18,0,0"/>
+        <TextBox x:Name="txtNameOfItem" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Width="188" Height="40" FontSize="20" FontFamily="Arial" TextAlignment="Center" TextWrapping="Wrap" Background="#FFEFECF5"/>
+        <Button x:Name="btnVegetablesPreset" Content="" HorizontalAlignment="Left" Margin="27,133,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnVegetablesPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/vegetables.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnMeatPreset" Content="" HorizontalAlignment="Left" Margin="132,133,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnMeatPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/meat.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnDrinksPreset" Content="" HorizontalAlignment="Center" Margin="0,133,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnDrinksPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/drinks.jpg"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnCheesePreset" Content="" HorizontalAlignment="Left" Margin="342,133,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnCheesePreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/cheese.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Vegetables" HorizontalAlignment="Left" Margin="42,199,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Label Content="Meat" HorizontalAlignment="Left" Margin="164,199,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Label Content="Drinks" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Label Content="Cheese" HorizontalAlignment="Left" Margin="364,199,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Label x:Name="lblTypeItem" Content="What type of item are you adding:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="14" Margin="0,103,0,0" Height="25" Width="276"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Center" Margin="0,385,0,0" VerticalAlignment="Top" Height="34" Width="188" />
+        <Label x:Name="lblItemExpiry" Content="Expiry:" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="14" Margin="0,356,0,0"/>
+        <Button x:Name="btnFruitPreset" Content="" HorizontalAlignment="Left" Margin="28,220,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnFruitPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/fruit.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Fruits" HorizontalAlignment="Left" Margin="59,287,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Button x:Name="btnToppingPreset" Content="" HorizontalAlignment="Left" Margin="133,220,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnToppingPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/topping.jpg"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Topping" HorizontalAlignment="Left" Margin="159,287,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Button x:Name="btnMilkPreset" Content="" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnMilkPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/milk.jpg"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Milk" HorizontalAlignment="Center" Margin="0,287,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Button x:Name="btnEggPreset" Content="" HorizontalAlignment="Left" Margin="450,133,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnEggPreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/egg.jpg"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Egg" HorizontalAlignment="Left" Margin="484,200,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Button x:Name="btnSaucePreset" Content="" HorizontalAlignment="Left" Margin="344,220,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnSaucePreset_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/sauces.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Sauce" HorizontalAlignment="Left" Margin="374,287,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Button x:Name="btnOther" Content="" HorizontalAlignment="Left" Margin="451,220,0,0" VerticalAlignment="Top" Height="66" Width="102" Click="btnOther_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/other.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Other" HorizontalAlignment="Left" Margin="481,287,0,0" VerticalAlignment="Top" FontSize="10" FontFamily="Arial Black"/>
+        <Label x:Name="lblPreset" Content="Preset:" HorizontalAlignment="Left" Margin="42,374,0,0" VerticalAlignment="Top" Height="56" Width="96" HorizontalContentAlignment="Center" FontFamily="Arial Black"/>
+    </Grid>
+</Window>

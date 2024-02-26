@@ -176,6 +176,74 @@ namespace HomeStockManager.Classes
             }
         }
 
+        public bool InsertIntoStorageTable(string user, string storagePlace, string storageContent, DateTime contentsExpiry, string contentType)
+        {
+            string query = "INSERT INTO storage (user, storagePlace, storageContent, ContentsExpiry, ContentType) " +
+                           "VALUES (@user, @storagePlace, @storageContent, @contentsExpiry, @contentType)";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@user", user);
+                cmd.Parameters.AddWithValue("@storagePlace", storagePlace);
+                cmd.Parameters.AddWithValue("@storageContent", storageContent);
+                cmd.Parameters.AddWithValue("@contentsExpiry", contentsExpiry);
+                cmd.Parameters.AddWithValue("@contentType", contentType);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
+        public bool DeleteStoragePlace(string username, string storagePlaceName)
+        {
+            try
+            {
+                connection.Open();
+
+                string deleteContentQuery = "DELETE FROM storage WHERE user = @username AND storagePlace = @storagePlaceName";
+                MySqlCommand deleteContentCmd = new MySqlCommand(deleteContentQuery, connection);
+                deleteContentCmd.Parameters.AddWithValue("@username", username);
+                deleteContentCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+                int contentRowsAffected = deleteContentCmd.ExecuteNonQuery();
+
+                string deleteStoragePlaceQuery = "DELETE FROM storagePlaces WHERE username = @username AND storageplaceName = @storagePlaceName";
+                MySqlCommand deleteStoragePlaceCmd = new MySqlCommand(deleteStoragePlaceQuery, connection);
+                deleteStoragePlaceCmd.Parameters.AddWithValue("@username", username);
+                deleteStoragePlaceCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+                int storagePlaceRowsAffected = deleteStoragePlaceCmd.ExecuteNonQuery();
+
+                if (contentRowsAffected == 0 && storagePlaceRowsAffected > 0)
+                {
+                    contentRowsAffected = 1;
+                }
+
+                return contentRowsAffected > 0 && storagePlaceRowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
         public User GetUserInfo(string username)
         {
             string query = "SELECT username, email, firstName, lastName, role FROM users WHERE username = @username";
