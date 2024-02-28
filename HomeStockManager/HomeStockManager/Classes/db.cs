@@ -316,6 +316,93 @@ namespace HomeStockManager.Classes
             return dt;
         }
 
+        public DataTable GetNotifications(string username)
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT notification, notificationDate, hasread_notification FROM notifications WHERE username = @username";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+
+            return dt;
+        }
+
+        public bool InsertNotification(string username, string notification)
+        {
+            string query = "INSERT INTO notifications (username, notification, notificationDate, hasread_notification) " +
+                           "VALUES (@username, @notification, @notificationDate, @hasRead)";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@notification", notification);
+                cmd.Parameters.AddWithValue("@notificationDate", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@hasRead", 0);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
+        public bool MarkNotificationsAsRead(string username)
+        {
+            string query = "UPDATE notifications SET hasread_notification = 1 WHERE username = @username";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
         public User GetUserInfo(string username)
         {
             string query = "SELECT username, email, firstName, lastName, role FROM users WHERE username = @username";

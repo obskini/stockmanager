@@ -11,12 +11,12 @@
         <Button x:Name="btnSettings" Content="Settings" Margin="59,397,1035,192" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnSettings_Click" Cursor="Hand" />
         <Button x:Name="btnStorage" Content="Storage" Margin="59,107,1035,481" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Click="btnStorage_Click" Cursor="Hand" />
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="743" Margin="266,0,0,0" VerticalAlignment="Center" Width="40"/>
-        <Button x:Name="btnAddStoragePlace" Content="+" Margin="828,56,362,546" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnAddStoragePlace_Click" />
-        <Label x:Name="lblAddStorage" Content="Add Storage" HorizontalAlignment="Left" Margin="731,56,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5834E0" FontWeight="Bold"/>
-        <Label x:Name="lblStoragePlaceName" Content="Name of the storage place:" HorizontalAlignment="Left" Margin="945,190,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="14"/>
-        <TextBox x:Name="txtStoragePlaceName" HorizontalAlignment="Left" Margin="963,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Height="35" FontSize="20" FontFamily="Arial"/>
-        <Button x:Name="btnSaveStoragePlace" Content="Save" Margin="1014,258,136,344" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnSaveStoragePlace_Click" />
-        <Button x:Name="btnFirstStoragePlace" Content="" Margin="366,175,666,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnFirstStoragePlace_Click" >
+        <Button x:Name="btnAddStoragePlace" Content="+" Margin="828,56,362,546" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnAddStoragePlace_Click" Visibility="Collapsed" />
+        <Label x:Name="lblAddStorage" Content="Add Storage" HorizontalAlignment="Left" Margin="731,56,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF5834E0" FontWeight="Bold" Visibility="Collapsed"/>
+        <Label x:Name="lblStoragePlaceName" Content="Name of the storage place:" HorizontalAlignment="Left" Margin="945,190,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="14" Visibility="Collapsed"/>
+        <TextBox x:Name="txtStoragePlaceName" HorizontalAlignment="Left" Margin="963,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Height="35" FontSize="20" FontFamily="Arial" Visibility="Collapsed"/>
+        <Button x:Name="btnSaveStoragePlace" Content="Save" Margin="1014,258,136,344" Background="#FF5948AF" Foreground="White" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnSaveStoragePlace_Click" Visibility="Collapsed" />
+        <Button x:Name="btnFirstStoragePlace" Content="" Margin="366,175,666,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnFirstStoragePlace_Click" Visibility="Collapsed" >
             <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -24,8 +24,8 @@
                 </LinearGradientBrush>
             </Button.Foreground>
         </Button>
-        <Image x:Name="imgArrowDown" HorizontalAlignment="Left" Height="30" Margin="512,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="FirstArrowClick"/>
-        <Button x:Name="btnSecondStoragePlace" Content="" Margin="672,175,360,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnSecondStoragePlace_Click" >
+        <Image x:Name="imgArrowDown" HorizontalAlignment="Left" Height="30" Margin="512,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="FirstArrowClick" Visibility="Collapsed"/>
+        <Button x:Name="btnSecondStoragePlace" Content="" Margin="672,175,360,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnSecondStoragePlace_Click" Visibility="Collapsed" >
             <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -33,9 +33,9 @@
                 </LinearGradientBrush>
             </Button.Foreground>
         </Button>
-        <Image x:Name="imgArrowDown_Copy" HorizontalAlignment="Left" Height="30" Margin="818,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="secondArrowClick"/>
-        <Image x:Name="btnCloseSaveOption" Margin="1166,181,31,436" Source="/close.png" MouseLeftButtonDown="CloseStorageSaveOption"/>
-        <Label x:Name="lblNoStoragePlaces" Content="No storage places yet!" HorizontalAlignment="Left" Margin="386,255,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="36">
+        <Image x:Name="imgArrowDown_Copy" HorizontalAlignment="Left" Height="30" Margin="818,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="secondArrowClick" Visibility="Collapsed"/>
+        <Image x:Name="btnCloseSaveOption" Margin="1166,181,31,436" Source="/close.png" MouseLeftButtonDown="CloseStorageSaveOption" Visibility="Collapsed"/>
+        <Label x:Name="lblNoStoragePlaces" Content="No storage places yet!" HorizontalAlignment="Left" Margin="386,255,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="36" Visibility="Collapsed">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -44,7 +44,7 @@
             </Label.Foreground>
         </Label>
         <Button x:Name="btnNotifications" Content="Notifications" Margin="59,250,1035,339" Background="#FF5948AF" Foreground="White" FontSize="16" FontFamily="Arial Black" Cursor="Hand" Click="btnNotifications_Click" />
-        <Button x:Name="btnEditFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="454,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+        <Button x:Name="btnEditFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="454,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Visibility="Collapsed">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -57,7 +57,7 @@
                 <ImageBrush ImageSource="/edit.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDeleteFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnDeleteFirstStoragePlace_Click">
+        <Button x:Name="btnDeleteFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="499,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnDeleteFirstStoragePlace_Click" Visibility="Collapsed">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -70,7 +70,7 @@
                 <ImageBrush ImageSource="/delete.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAddContentFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="409,216,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnAddContentFirstStoragePlace_Click">
+        <Button x:Name="btnAddContentFirstStoragePlace" Content="" HorizontalAlignment="Left" Margin="409,216,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnAddContentFirstStoragePlace_Click" Visibility="Collapsed">
             <Button.Background>
                 <ImageBrush ImageSource="/add.png"/>
             </Button.Background>
@@ -83,11 +83,11 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label x:Name="lblAddFirst" Content="Add" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <Label x:Name="lblEditFirst" Content="Edit" HorizontalAlignment="Left" Margin="457,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <Label x:Name="lblDeleteFirst" Content="Delete" HorizontalAlignment="Left" Margin="497,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <DataGrid x:Name="dgFirst" Margin="366,259,666,28"/>
-        <Button x:Name="btnEditSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="763,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+        <Label x:Name="lblAddFirst" Content="Add" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Collapsed"/>
+        <Label x:Name="lblEditFirst" Content="Edit" HorizontalAlignment="Left" Margin="457,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Collapsed"/>
+        <Label x:Name="lblDeleteFirst" Content="Delete" HorizontalAlignment="Left" Margin="497,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Collapsed"/>
+        <DataGrid x:Name="dgFirst" Margin="366,259,666,28" Visibility="Collapsed"/>
+        <Button x:Name="btnEditSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="763,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Visibility="Collapsed">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -100,7 +100,7 @@
                 <ImageBrush ImageSource="/edit.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDeleteSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="809,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnDeleteSecondStoragePlace_Click">
+        <Button x:Name="btnDeleteSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="809,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnDeleteSecondStoragePlace_Click" Visibility="Collapsed">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -113,7 +113,7 @@
                 <ImageBrush ImageSource="/delete.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAddContentSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="718,216,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnAddContentSecondStoragePlace_Click">
+        <Button x:Name="btnAddContentSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="718,216,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Click="btnAddContentSecondStoragePlace_Click" Visibility="Collapsed">
             <Button.Background>
                 <ImageBrush ImageSource="/add.png"/>
             </Button.Background>
@@ -126,10 +126,17 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label x:Name="lblAddSecond" Content="Add" HorizontalAlignment="Left" Margin="721,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <Label x:Name="lblEditSecond" Content="Edit" HorizontalAlignment="Left" Margin="766,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <Label x:Name="lblDeleteSecond" Content="Delete" HorizontalAlignment="Left" Margin="806,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <DataGrid x:Name="dgSecond" Margin="673,258,360,29"/>
+        <Label x:Name="lblAddSecond" Content="Add" HorizontalAlignment="Left" Margin="721,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Collapsed"/>
+        <Label x:Name="lblEditSecond" Content="Edit" HorizontalAlignment="Left" Margin="766,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Collapsed"/>
+        <Label x:Name="lblDeleteSecond" Content="Delete" HorizontalAlignment="Left" Margin="806,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Collapsed"/>
+        <DataGrid x:Name="dgSecond" Margin="673,258,360,29" Visibility="Collapsed"/>
+        <ListBox x:Name="notificationslist" Margin="428,93,109,144" Background="#FFE1D1FF" Foreground="Black">
+            <ListBox.Effect>
+                <DropShadowEffect/>
+            </ListBox.Effect>
+        </ListBox>
+        <Label x:Name="lblNotifications" Content="0" HorizontalAlignment="Left" Margin="182,233,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White" Background="Red" Height="35" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
 
     </Grid>
 </Window>

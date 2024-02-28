@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace HomeStockManager
 {
@@ -15,6 +16,7 @@ namespace HomeStockManager
         private DB db;
         int countertje = 1;
         int countertje2 = 1;
+        private DispatcherTimer timer;
         public Hub(User loggedInUser)
         {
             InitializeComponent();
@@ -22,6 +24,16 @@ namespace HomeStockManager
             db = new DB();
             lblSayHi.Content = "Hello, " + me.FirstName;
             HideStorage();
+            HideNotifications();
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(20);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            getNotis();
         }
 
         private void HideStorage()
@@ -53,8 +65,14 @@ namespace HomeStockManager
             dgSecond.Visibility = Visibility.Collapsed;
         }
 
+        private void HideNotifications()
+        {
+            notificationslist.Visibility = Visibility.Collapsed;
+        }
+
         private void btnStorage_Click(object sender, RoutedEventArgs e)
         {
+            HideNotifications();
             btnAddStoragePlace.Visibility = Visibility.Visible;
             lblAddStorage.Visibility = Visibility.Visible;
             CheckForStoragePlaces();
@@ -108,6 +126,7 @@ namespace HomeStockManager
             if (StoragePlaceName != "" && StoragePlaceName != " ")
             {
                 db.SaveStoragePlace(me.Username, StoragePlaceName);
+                db.InsertNotification(me.Username, $"{StoragePlaceName} has been added to your storageplaces.");
             }
             else MessageBox.Show("Please fill in a valid name. For example: Fridge");
 
@@ -125,7 +144,34 @@ namespace HomeStockManager
         private void btnNotifications_Click(object sender, RoutedEventArgs e)
         {
             HideStorage();
+            notificationslist.Visibility = Visibility.Visible;
 
+            getNotis();
+            db.MarkNotificationsAsRead(me.Username);
+        }
+
+        private void getNotis()
+        {
+            int unreadNotifications = 0;
+            DataTable notifications = db.GetNotifications(me.Username);
+
+            notifications.Columns.Add("DisplayNotification", typeof(string));
+            foreach (DataRow row in notifications.Rows)
+            {
+                string notificationDate = row["notificationDate"].ToString();
+                string notificationContent = row["notification"].ToString();
+
+                int checker = int.Parse(row["hasread_notification"].ToString());
+                if (checker == 0) unreadNotifications++;
+
+                row["DisplayNotification"] = $"{notificationDate} - {notificationContent}";
+
+            }
+
+            lblNotifications.Content = unreadNotifications;
+
+            notificationslist.DisplayMemberPath = "DisplayNotification";
+            notificationslist.ItemsSource = notifications.DefaultView;
         }
 
         private void btnFirstStoragePlace_Click(object sender, RoutedEventArgs e)

@@ -132,6 +132,7 @@ namespace HomeStockManager
                         if (success)
                         {
                             MessageBox.Show("Item added to " + storagePlace);
+                            db.InsertNotification(me.Username, $"{itemname} has been added to {storagePlace}");
                             this.Close();
                         }
                         else

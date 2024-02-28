@@ -52,6 +52,7 @@ namespace HomeStockManager
             if (db.Register(firstName, lastName, username, email, password))
             {
                 MessageBox.Show("Registration successful!");
+                db.InsertNotification(username, "You have registered an account.");
                 RegisterFirstNameTextBox.Clear();
                 RegisterLastNameTextBox.Clear();
                 RegisterUsernameTextBox.Clear();
