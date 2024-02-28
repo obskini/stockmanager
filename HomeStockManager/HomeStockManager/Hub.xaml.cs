@@ -125,6 +125,7 @@ namespace HomeStockManager
         private void btnNotifications_Click(object sender, RoutedEventArgs e)
         {
             HideStorage();
+
         }
 
         private void btnFirstStoragePlace_Click(object sender, RoutedEventArgs e)
@@ -272,6 +273,52 @@ namespace HomeStockManager
                 dgSecond.Visibility = Visibility.Visible;
 
                 countertje2 = 2;
+            }
+        }
+
+        private void btnAddContentSecondStoragePlace_Click(object sender, RoutedEventArgs e)
+        {
+            string storagePlaceName = btnSecondStoragePlace.Content.ToString();
+            AddItem nieuweContent = new AddItem(me, storagePlaceName);
+            nieuweContent.Show();
+        }
+
+        private void btnDeleteSecondStoragePlace_Click(object sender, RoutedEventArgs e)
+        {
+            string storagePlaceName = btnSecondStoragePlace.Content.ToString();
+            string username = me.Username;
+
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this storage place and its contents?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                bool success = db.DeleteStoragePlace(username, storagePlaceName);
+
+                if (success)
+                {
+                    btnEditSecondStoragePlace.Visibility = Visibility.Collapsed;
+                    btnDeleteSecondStoragePlace.Visibility = Visibility.Collapsed;
+                    btnAddContentSecondStoragePlace.Visibility = Visibility.Collapsed;
+
+                    btnSecondStoragePlace.Visibility = Visibility.Collapsed;
+                    imgArrowDown_Copy.Visibility = Visibility.Collapsed;
+
+                    lblEditSecond.Visibility = Visibility.Collapsed;
+                    lblDeleteSecond.Visibility = Visibility.Collapsed;
+                    lblAddSecond.Visibility = Visibility.Collapsed;
+
+                    MessageBox.Show("Storage place and its contents deleted successfully.");
+                    CheckForStoragePlaces();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete storage place and its contents.");
+                    CheckForStoragePlaces();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Deleting cancelled.");
             }
         }
     }

@@ -168,17 +168,27 @@ namespace HomeStockManager.Classes
 
         public bool SaveStoragePlace(string username, string storagePlaceName)
         {
-            string checkQuery = "SELECT COUNT(*) FROM storagePlaces WHERE username = @username AND storageplaceName = @storagePlaceName";
+            string checkCountQuery = "SELECT COUNT(*) FROM storagePlaces WHERE username = @username";
+            string checkExistenceQuery = "SELECT COUNT(*) FROM storagePlaces WHERE username = @username AND storageplaceName = @storagePlaceName";
 
             try
             {
                 connection.Open();
 
-                MySqlCommand checkCmd = new MySqlCommand(checkQuery, connection);
-                checkCmd.Parameters.AddWithValue("@username", username);
-                checkCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+                MySqlCommand checkCountCmd = new MySqlCommand(checkCountQuery, connection);
+                checkCountCmd.Parameters.AddWithValue("@username", username);
+                int storagePlacesCount = Convert.ToInt32(checkCountCmd.ExecuteScalar());
 
-                int existingCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                if (storagePlacesCount >= 2)
+                {
+                    MessageBox.Show("You have reached the limit of two storage places.");
+                    return false;
+                }
+
+                MySqlCommand checkExistenceCmd = new MySqlCommand(checkExistenceQuery, connection);
+                checkExistenceCmd.Parameters.AddWithValue("@username", username);
+                checkExistenceCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
+                int existingCount = Convert.ToInt32(checkExistenceCmd.ExecuteScalar());
 
                 if (existingCount > 0)
                 {
@@ -187,7 +197,6 @@ namespace HomeStockManager.Classes
                 }
 
                 string insertQuery = "INSERT INTO storagePlaces (username, storageplaceName) VALUES (@username, @storagePlaceName)";
-
                 MySqlCommand insertCmd = new MySqlCommand(insertQuery, connection);
                 insertCmd.Parameters.AddWithValue("@username", username);
                 insertCmd.Parameters.AddWithValue("@storagePlaceName", storagePlaceName);
