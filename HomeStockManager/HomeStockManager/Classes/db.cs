@@ -106,10 +106,40 @@ namespace HomeStockManager.Classes
             }
         }
 
-        public string GetStoragePlaceName(string username)
+        public string GetFirstStoragePlaceName(string username)
         {
             string storagePlaceName = null;
-            string query = "SELECT storageplaceName FROM storagePlaces WHERE username = @username";
+            string query = "SELECT storageplaceName FROM storagePlaces WHERE username = @username ORDER BY storageplaceid DESC LIMIT 1;";
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    storagePlaceName = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open) connection.Close();
+            }
+
+            return storagePlaceName;
+        }
+
+        public string GetSecondStoragePlaceName(string username)
+        {
+            string storagePlaceName = null;
+            string query = "SELECT storageplaceName FROM storagePlaces WHERE username = @username ORDER BY storageplaceid ASC LIMIT 1;";
 
             try
             {

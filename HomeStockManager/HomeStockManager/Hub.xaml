@@ -25,7 +25,7 @@
             </Button.Foreground>
         </Button>
         <Image x:Name="imgArrowDown" HorizontalAlignment="Left" Height="30" Margin="512,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="FirstArrowClick"/>
-        <Button x:Name="btnSecondStoragePlace" Content="" Margin="672,175,360,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" >
+        <Button x:Name="btnSecondStoragePlace" Content="" Margin="672,175,360,424" Background="#FF8D7DDE" FontSize="20" FontFamily="Arial Black" Cursor="Hand" Click="btnSecondStoragePlace_Click" >
             <Button.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -33,7 +33,7 @@
                 </LinearGradientBrush>
             </Button.Foreground>
         </Button>
-        <Image x:Name="imgArrowDown_Copy" HorizontalAlignment="Left" Height="30" Margin="818,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand"/>
+        <Image x:Name="imgArrowDown_Copy" HorizontalAlignment="Left" Height="30" Margin="818,181,0,0" VerticalAlignment="Top" Width="46" Source="/Arrow-down.png" Cursor="Hand" MouseLeftButtonDown="secondArrowClick"/>
         <Image x:Name="btnCloseSaveOption" Margin="1166,181,31,436" Source="/close.png" MouseLeftButtonDown="CloseStorageSaveOption"/>
         <Label x:Name="lblNoStoragePlaces" Content="No storage places yet!" HorizontalAlignment="Left" Margin="386,255,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Black" FontSize="36">
             <Label.Foreground>
@@ -86,7 +86,50 @@
         <Label x:Name="lblAddFirst" Content="Add" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
         <Label x:Name="lblEditFirst" Content="Edit" HorizontalAlignment="Left" Margin="457,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
         <Label x:Name="lblDeleteFirst" Content="Delete" HorizontalAlignment="Left" Margin="497,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
-        <DataGrid x:Name="dgFirst" Margin="366,246,666,41"/>
+        <DataGrid x:Name="dgFirst" Margin="366,252,666,35"/>
+        <Button x:Name="btnEditSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="763,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.556"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/edit.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnDeleteSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="809,217,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.556"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/delete.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnAddContentSecondStoragePlace" Content="" HorizontalAlignment="Left" Margin="718,216,0,0" VerticalAlignment="Top" Height="31" Width="33" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush ImageSource="/add.png"/>
+            </Button.Background>
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.556"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label x:Name="lblAddSecond" Content="Add" HorizontalAlignment="Left" Margin="721,241,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
+        <Label x:Name="lblEditSecond" Content="Edit" HorizontalAlignment="Left" Margin="766,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
+        <Label x:Name="lblDeleteSecond" Content="Delete" HorizontalAlignment="Left" Margin="806,242,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="10"/>
+        <DataGrid x:Name="dgSecond" Margin="673,253,360,34"/>
 
     </Grid>
 </Window>

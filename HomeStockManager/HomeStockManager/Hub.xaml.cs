@@ -14,6 +14,7 @@ namespace HomeStockManager
         User me;
         private DB db;
         int countertje = 1;
+        int countertje2 = 1;
         public Hub(User loggedInUser)
         {
             InitializeComponent();
@@ -42,7 +43,14 @@ namespace HomeStockManager
             lblAddFirst.Visibility = Visibility.Collapsed;
             lblEditFirst.Visibility = Visibility.Collapsed;
             lblDeleteFirst.Visibility = Visibility.Collapsed;
-            dgFirst.Visibility = Visibility.Collapsed;
+            dgFirst.Visibility = Visibility.Collapsed; 
+            btnEditSecondStoragePlace.Visibility = Visibility.Collapsed;
+            btnDeleteSecondStoragePlace.Visibility = Visibility.Collapsed;
+            btnAddContentSecondStoragePlace.Visibility = Visibility.Collapsed;
+            lblEditSecond.Visibility = Visibility.Collapsed;
+            lblDeleteSecond.Visibility = Visibility.Collapsed;
+            lblAddSecond.Visibility = Visibility.Collapsed;
+            dgSecond.Visibility = Visibility.Collapsed;
         }
 
         private void btnStorage_Click(object sender, RoutedEventArgs e)
@@ -61,17 +69,19 @@ namespace HomeStockManager
                 lblNoStoragePlaces.Visibility = Visibility.Collapsed;
                 btnFirstStoragePlace.Visibility = Visibility.Visible;
                 imgArrowDown.Visibility = Visibility.Visible;
-                btnFirstStoragePlace.Content = db.GetStoragePlaceName(me.Username);
+                btnFirstStoragePlace.Content = db.GetFirstStoragePlaceName(me.Username);
             }
             else if (storagePlacesCount == 2)
             {
                 lblNoStoragePlaces.Visibility = Visibility.Collapsed;
+
                 btnFirstStoragePlace.Visibility = Visibility.Visible;
                 imgArrowDown.Visibility = Visibility.Visible;
-                btnFirstStoragePlace.Content = db.GetStoragePlaceName(me.Username);
+                btnFirstStoragePlace.Content = db.GetFirstStoragePlaceName(me.Username);
 
                 btnSecondStoragePlace.Visibility = Visibility.Visible;
                 imgArrowDown_Copy.Visibility = Visibility.Visible;
+                btnSecondStoragePlace.Content = db.GetSecondStoragePlaceName(me.Username);
             }
             else
             {
@@ -211,6 +221,57 @@ namespace HomeStockManager
             else
             {
                 MessageBox.Show("Deleting cancelled.");
+            }
+        }
+
+        private void btnSecondStoragePlace_Click(object sender, RoutedEventArgs e)
+        {
+            FlipSecondArrow();
+        }
+
+        private void secondArrowClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            FlipSecondArrow();
+        }
+
+        private void FlipSecondArrow()
+        {
+            if (countertje2 == 2)
+            {
+                imgArrowDown_Copy.RenderTransform = new RotateTransform(0);
+
+                btnEditSecondStoragePlace.Visibility = Visibility.Collapsed;
+                btnDeleteSecondStoragePlace.Visibility = Visibility.Collapsed;
+                btnAddContentSecondStoragePlace.Visibility = Visibility.Collapsed;
+
+
+                lblEditSecond.Visibility = Visibility.Collapsed;
+                lblDeleteSecond.Visibility = Visibility.Collapsed;
+                lblAddSecond.Visibility = Visibility.Collapsed;
+
+                dgSecond.Visibility = Visibility.Collapsed;
+
+                countertje2 = 1;
+            }
+            else
+            {
+                imgArrowDown_Copy.RenderTransformOrigin = new Point(0.5, 0.5);
+                ScaleTransform flipTransform = new ScaleTransform(1, -1);
+                imgArrowDown_Copy.RenderTransform = flipTransform;
+
+                btnEditSecondStoragePlace.Visibility = Visibility.Visible;
+                btnDeleteSecondStoragePlace.Visibility = Visibility.Visible;
+                btnAddContentSecondStoragePlace.Visibility = Visibility.Visible;
+
+                lblEditSecond.Visibility = Visibility.Visible;
+                lblDeleteSecond.Visibility = Visibility.Visible;
+                lblAddSecond.Visibility = Visibility.Visible;
+
+                DataTable dt = db.GetStorageData(me.Username, btnSecondStoragePlace.Content.ToString());
+                dgSecond.ItemsSource = dt.DefaultView;
+                dgSecond.Visibility = Visibility.Visible;
+
+                countertje2 = 2;
             }
         }
     }
