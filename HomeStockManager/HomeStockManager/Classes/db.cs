@@ -12,16 +12,15 @@ namespace HomeStockManager.Classes
 
         public DB()
         {
-            server = "";
+            server = "141.95.16.251";
             database = "stockbeheer";
-            username = "stockbeheerder";
+            username = "stockbeheer";
             password = "hahatesting123";
 
             connection = new MySqlConnection($"server={server};port=3306;uid={username};pwd={password};database={database}");
 
-            //HEB DE DATABASE FF OFFLINE GEHAALD DUS DE APP WERKT VOORLOPIG NIET
 
-            //jullie kunnen de database bekijken op 35.197.205.190/phpmyadmin
+            //jullie kunnen de database bekijken op 141.95.16.251/phpmyadmin
             //database zelf noemt stockbeheer
         }
 
