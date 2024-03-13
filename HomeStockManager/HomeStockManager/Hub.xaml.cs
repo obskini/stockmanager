@@ -202,6 +202,7 @@ namespace HomeStockManager
                 dgFirst.Visibility = Visibility.Collapsed;
 
                 countertje = 1;
+                countertje = 1;
             }
             else
             {
@@ -255,8 +256,10 @@ namespace HomeStockManager
                     lblEditFirst.Visibility = Visibility.Collapsed;
                     lblDeleteFirst.Visibility = Visibility.Collapsed;
                     lblAddFirst.Visibility = Visibility.Collapsed;
+                    dgFirst.Visibility = Visibility.Collapsed;
 
                     MessageBox.Show("Storage place and its contents deleted successfully.");
+                    db.InsertNotification(username, $"Storage place '{storagePlaceName}' and it's contents have been deleted.");
                     CheckForStoragePlaces();
                 }
                 else
